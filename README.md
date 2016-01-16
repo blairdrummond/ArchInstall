@@ -1,5 +1,7 @@
 #Grab Arch ISO and prepare the installation media
 
+**Work in progress. Ignore most of this, the scripts are good though.**
+
 #Connect to the Internet
 
 > wifi-menu -o
@@ -139,6 +141,7 @@ And if you are using the wired connection, then enable it and set it to start at
 To configure dhcpcd to start at boot run the following:
 
 > systemctl start dhcpcd@enp0s25.service
+
 > systemctl enable dhcpcd@enp0s25.service
 
 If you are using wireless, then install these packages (if you are planning to use a desktop environment (DE), then it will be much easier to just use the network management tool for the installed DE):
@@ -184,6 +187,7 @@ We now have to create password for this user:
 Let’s now install sudo so that this user can perform administrative tasks without becoming root:
 
 > pacman -S sudo
+
 > visudo
 
 Un-comment this line in this file:
@@ -247,4 +251,5 @@ If you are using a laptop you will also need to install the drivers for input de
 then
 
 > git init
+
 > git pull https://github.com/blairdrummond/dotfiles.git
