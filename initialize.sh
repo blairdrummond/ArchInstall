@@ -22,6 +22,8 @@ fi
 git init
 git pull https://github.com/blairdrummond/dotfiles.git
 
+# Copy scripts into bin for xmobar to use
+sudo cp .executable/* /usr/bin/
 
 #Audio
 sudo gpasswd -a blair audio
