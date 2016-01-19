@@ -32,7 +32,7 @@ Usage:
 }
 
 
-pacman -S sudo vim git highlight tmux
+pacman -S sudo highlight tmux
 
 # Vim
 cp plug.vim /usr/share/vim/vim74/autoload/
@@ -68,3 +68,12 @@ passwd blair
 
 #Give permissions to wheel
 uncomment --pattern "%wheel ALL=(ALL) ALL" --file /etc/sudoers
+
+
+# Set up the next step
+mkdir /home/blair
+cp initialize.sh /home/blair
+chown --recursive blair /home/blair
+
+echo
+echo "Now log into blair and run the script"

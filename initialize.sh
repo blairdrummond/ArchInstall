@@ -5,7 +5,7 @@ pause(){
 }
 
 # Install (no window manager yet)
-sudo pacman -S adobe-source-code-pro-fonts arandr aspell aspell-en aspell-fr curl dfc dmenu emacs feh hunspell networkmanager networkmanager-openvpn openssh openvpn pandoc pygmentize python-pip python-pyflakes python-pygments python-virtualenv ranger rsync rxvt-unicode screenfetch texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science unzip wget wireless_tools wpa_supplicant xbindkeys xf86-input-synaptics xfce4-screenshooter xorg-server zathura zathura-pdf-poppler zathura-ps zip zsh zsh-completions
+sudo pacman -S adobe-source-code-pro-fonts arandr aspell aspell-en aspell-fr curl dfc dmenu emacs feh hunspell networkmanager networkmanager-openvpn openssh openvpn pandoc pygmentize python-pip python-pyflakes python-pygments python-virtualenv ranger rsync rxvt-unicode screenfetch texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science unzip wget wireless_tools wpa_supplicant xbindkeys xf86-video xf86-input-synaptics xfce4-screenshooter xorg-server xorg-xinit zathura zathura-pdf-poppler zathura-ps zip zsh zsh-completions
 
 
 # To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
@@ -21,6 +21,8 @@ fi
 
 # xmonad, terminal, moc, tmux, emacs, TeX, xinitrc, background, etc
 git init
+git config --global user.email "bdrum047@uottawa.ca"
+git config --global user.name  "Blair Drummond"
 git pull https://github.com/blairdrummond/dotfiles.git
 
 # Copy scripts into bin for xmobar to use
@@ -30,9 +32,10 @@ for i in .executable/* ; do
     sudo chmod +x "/usr/bin/$i"
 done
 
-#Audio
-sudo gpasswd -a blair audio
-amixer sset Master unmute
+# #Audio
+# sudo pacman -S alsa alsa-utils amixer ffmpeg
+# sudo gpasswd -a blair audio
+# amixer sset Master unmute
 
 # Raspberry Pi
 #	# To get audio out of the headphone jack
@@ -41,7 +44,7 @@ amixer sset Master unmute
 
 
 # Set up AUR (yaourt)
-pacman -S --needed base-devel
+sudo pacman -S --needed base-devel
 mkdir aur && cd aur
 curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz
 tar -xvf yaourt.tar.gz
@@ -58,4 +61,3 @@ mv .zshrc temp.zshrc
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s /bin/zsh
 mv temp.zshrc .zshrc
-
