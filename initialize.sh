@@ -52,7 +52,10 @@ makepkg -sri
 yaourt -S light-git
 
 
+
 # Oh-My-Zsh
+mv .zshrc temp.zshrc
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s /bin/zsh
+mv temp.zshrc .zshrc
 
