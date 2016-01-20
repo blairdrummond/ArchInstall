@@ -45,11 +45,11 @@ fi
 # git clone https://github.com/blairdrummond/dotfiles.git
 
 # Copy scripts into bin for xmobar to use
-# sudo cp .executable/* /usr/bin/
-for i in .executable/* ; do
-    sudo cp .executable/$i /usr/bin/
-    sudo chmod +x "/usr/bin/$i"
-done
+sudo cp .executable/* /usr/bin/
+# for i in .executable/* ; do
+#     sudo cp .executable/$i /usr/bin/
+#     sudo chmod +x "/usr/bin/$i"
+# done
 
 # #Audio
 # sudo pacman -S alsa alsa-utils amixer ffmpeg
