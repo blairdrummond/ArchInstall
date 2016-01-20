@@ -64,6 +64,13 @@ useradd -m -G wheel -s /bin/bash blair
 
 echo "blair's password"
 passwd blair
+echo
+
+# Change root password
+echo
+echo "root password"
+passwd
+echo
 
 
 #Give permissions to wheel
