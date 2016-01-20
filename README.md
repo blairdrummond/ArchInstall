@@ -87,81 +87,19 @@ Now lets chroot into the new system:
 
 > arch-chroot /mnt /bin/bash
 
-#Locale
-We now edit locale.gen file which holds info such as system language, etc:
+# Use the installer
 
-> vim /etc/locale.gen
+> pacman -S git
 
-Find your language and uncomment entries for it (in my case it was US English):
+> cd root
 
-LANG=en_US.UTF-8
+> git clone https://github.com/blairdrummond/ArchInstall.git
 
-Once the language is uncommented and the file saved, run the following commands, one by one:
+> cd ArchInstall
 
-> locale-gen
-> echo LANG=en_US.UTF-8 > /etc/locale.conf
-> export LANG=en_US.UTF-8
+> sh install.sh
 
-#Time & Date
-Now configure the time. Run the following command and then follow the simple steps:
-
-tzselect
-
-Once done, it will show you that the time zone will be set in this order. Type 1 or 2 for yes or no as shown. Now created symlink to it:
-
-> ln -s /usr/share/zoneinfo/Zone/SubZone > /etc/localtime
-
-#Clock
-And now set the hwclock to UTC:
-
-> hwclock --systohc --utc
-
-
-#Setting boot manager
-
-Now it’s time to configure boot-loader. Install the package grub.
-
-pacman -S grub
-
-Now run the following command:
-
-> grub-install --recheck --target=i386-pc /dev/sdX
-
-
-Now generate grub.cfg:
-
-> grub-mkconfig -o /boot/grub/grub.cfg
-
-We are all set with the OS install, we have to now install other components and configure the system. First get the network to work. If you used wifi, you will have to disable dhcpcd service that’s enabled by default:
-
-> systemctl stop dhcpcd@enp0s25.service
-
-And if you are using the wired connection, then enable it and set it to start at reboot. To find the name of wired/wireless devices run ‘ip link’ command that will give you the name of the Interfaces.
-
-To configure dhcpcd to start at boot run the following:
-
-> systemctl start dhcpcd@enp0s25.service
-
-> systemctl enable dhcpcd@enp0s25.service
-
-If you are using wireless, then install these packages (if you are planning to use a desktop environment (DE), then it will be much easier to just use the network management tool for the installed DE):
-
-> pacman -S iw wpa_supplicant dialog
-
-
-#Hostname
-
-Let’s give our system a decent host name:
-
-> echo blairsMachine > /etc/hostname
-
-#Root Password
-Now let’s create the password for the root. Run the following command:
-
-> passwd
-
-#Save and exit
-Then exit the chroot environment
+> sh root_initialize.sh
 
 > exit
 
