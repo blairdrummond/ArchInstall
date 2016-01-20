@@ -5,7 +5,10 @@ pause(){
 }
 
 # Install (no window manager yet)
-sudo pacman -S adobe-source-code-pro-fonts arandr aspell aspell-en aspell-fr curl dfc dmenu emacs feh hunspell networkmanager networkmanager-openvpn openssh openvpn pandoc pygmentize python-pip python-pyflakes python-pygments python-virtualenv ranger rsync rxvt-unicode screenfetch texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science ttf-dejavu unzip urxvt-perls wget wireless_tools wpa_supplicant xbindkeys xf86-input-synaptics xf86-video xfce4-screenshooter xorg-server xorg-xclipboard xorg-xinit xorg-xmodmap xorg-xsetroot zathura zathura-pdf-poppler zathura-ps zip zsh zsh-completions
+sudo pacman -S adobe-source-code-pro-fonts arandr aspell aspell-en aspell-fr curl dfc dmenu emacs feh hunspell networkmanager networkmanager-openvpn openssh openvpn pandoc pygmentize python-pip python-pyflakes python-pygments python-virtualenv ranger rsync rxvt-unicode screenfetch texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science ttf-dejavu unzip urxvt-perls wget wireless_tools wpa_supplicant xbindkeys xf86-input-synaptics xfce4-screenshooter xorg-server xorg-xclipboard xorg-xinit xorg-xmodmap xorg-xsetroot zathura zathura-pdf-poppler zathura-ps zip zsh zsh-completions
+
+# Video card
+sudo pacman -S xf86-video-nouveau
 
 
 # To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
@@ -44,7 +47,7 @@ fi
 # Copy scripts into bin for xmobar to use
 # sudo cp .executable/* /usr/bin/
 for i in .executable/* ; do
-    sudo cp $i /usr/bin/
+    sudo cp .executable/$i /usr/bin/
     sudo chmod +x "/usr/bin/$i"
 done
 
