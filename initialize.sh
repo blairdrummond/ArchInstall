@@ -25,6 +25,22 @@ git config --global user.email "bdrum047@uottawa.ca"
 git config --global user.name  "Blair Drummond"
 git pull https://github.com/blairdrummond/dotfiles.git
 
+
+# For desktop keyboard bindings, switch branches
+read -p "Switch to the desktop branch?" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    git checkout desktop_xmodmap
+fi
+
+
+
+
+-b desktop_xmodmap --single-branch desktop_xmodmap
+
+# git clone https://github.com/blairdrummond/dotfiles.git
+
 # Copy scripts into bin for xmobar to use
 # sudo cp .executable/* /usr/bin/
 for i in .executable/* ; do

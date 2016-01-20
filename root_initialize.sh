@@ -32,7 +32,7 @@ Usage:
 }
 
 
-pacman -S sudo highlight tmux
+pacman -S sudo highlight tmux vim
 
 # Vim
 cp plug.vim /usr/share/vim/vim74/autoload/
