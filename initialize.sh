@@ -23,33 +23,41 @@ fi
 
 
 # xmonad, terminal, moc, tmux, emacs, TeX, xinitrc, background, etc
-git init
 git config --global user.email "bdrum047@uottawa.ca"
 git config --global user.name  "Blair Drummond"
-git pull https://github.com/blairdrummond/dotfiles.git
+
 
 
 # For desktop keyboard bindings, switch branches
-read -p "Switch to the desktop branch?" -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    git checkout desktop_xmodmap
-fi
+function choose_system () {
+    read -p "Choose system:
 
-
-
-
--b desktop_xmodmap --single-branch desktop_xmodmap
-
-# git clone https://github.com/blairdrummond/dotfiles.git
+    1) desktop
+    2) netbook
+" n
+    case $n in
+	1)
+	    git clone -b desktop_xmodmap https://github.com/blairdrummond/dotfiles.git
+	    mv dotfiles/*  .
+	    mv dotfiles/.* .
+	    rm dotfiles -rf
+	    ;;
+	2)
+	    git init
+	    git pull https://github.com/blairdrummond/dotfiles.git
+	    ;;
+	*)
+	    echo "Bad option"
+	    echo
+	    choose_system
+	    ;;
+    esac
+}
+choose_system
 
 # Copy scripts into bin for xmobar to use
 sudo cp .executable/* /usr/bin/
-# for i in .executable/* ; do
-#     sudo cp .executable/$i /usr/bin/
-#     sudo chmod +x "/usr/bin/$i"
-# done
+
 
 # #Audio
 # sudo pacman -S alsa alsa-utils amixer ffmpeg
@@ -66,11 +74,15 @@ sudo cp .executable/* /usr/bin/
 sudo pacman -S --needed base-devel
 mkdir aur && cd aur
 
+
+
 # Get Package Query
 curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
 tar -xvf package-query.tar.gz
 cd package-query
 makepkg -sri
+
+
 
 # Get Yaourt
 cd /home/blair/aur/
@@ -92,3 +104,9 @@ mv .zshrc temp.zshrc
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s /bin/zsh
 mv temp.zshrc .zshrc
+
+
+
+# Network Manager
+systemctl enable NetworkManager.service
+systemctl start  NetworkManager.service
