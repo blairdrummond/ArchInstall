@@ -46,10 +46,22 @@ done
 # Set up AUR (yaourt)
 sudo pacman -S --needed base-devel
 mkdir aur && cd aur
+
+# Get Package Query
+curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
+tar -xvf package-query.tar.gz
+cd package-query
+makepkg -sri
+
+# Get Yaourt
+cd /home/blair/aur/
 curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz
 tar -xvf yaourt.tar.gz
 cd yaourt
 makepkg -sri
+cd ~/
+
+
 
 # Backlight control
 yaourt -S light-git
