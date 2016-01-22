@@ -103,6 +103,10 @@ yaourt -S urlscan-git
 yaourt -S t-prot
 
 
+#Dictionary
+yaourt -S wordnet
+
+
 # Oh-My-Zsh
 mv .zshrc temp.zshrc
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
