@@ -38,16 +38,36 @@ pacman -S sudo highlight tmux vim
 cp plug.vim /usr/share/vim/vim74/autoload/
 
 echo "
+\" syntax highlighting
 syntax on
+
+
+\" Spell check
+hi clear SpellBad
+hi SpellBad cterm=underline
+
+
+\" Theme
 colorscheme desert
 
+
+\" Goyo
 call plug#begin('/etc/vim/plugged')
     Plug 'junegunn/goyo.vim'
 call plug#end()
 
 autocmd VimEnter * Goyo
-" >> /etc/vimrc
 
+\" Quitting whether Goyo is active or not
+ca wq :w<cr>:call Quit()<cr>
+ca q :call Quit()<cr>
+function! Quit()
+    if exists('#goyo')
+        Goyo
+    endif
+    quit
+endfunction
+" >> /etc/vimrc
 
 	echo "Now we're going to run vim. You need to just ignore any errors and type
 
