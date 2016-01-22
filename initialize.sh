@@ -98,7 +98,7 @@ yaourt -S light-git
 
 
 # Email setup
-sudo pacman -S mutt lynx
+sudo pacman -S mutt lynx abook
 yaourt -S urlscan-git
 yaourt -S t-prot
 
