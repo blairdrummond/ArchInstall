@@ -93,10 +93,14 @@ makepkg -sri
 cd ~/
 
 
-
 # Backlight control
 yaourt -S light-git
 
+
+# Email setup
+sudo pacman -S mutt lynx
+yaourt -S urlscan-git
+yaourt -S t-prot
 
 
 # Oh-My-Zsh
