@@ -102,5 +102,9 @@ mkdir /home/blair
 cp initialize.sh /home/blair
 chown --recursive blair /home/blair
 
+
+
+
+
 echo
 echo "Now log into blair and run the script"

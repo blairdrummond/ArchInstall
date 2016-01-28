@@ -118,3 +118,18 @@ mv temp.zshrc .zshrc
 # Network Manager
 systemctl enable NetworkManager.service
 systemctl start  NetworkManager.service
+
+
+
+
+# To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
+read -p "ssh into this machine?" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    sudo echo "AllowUsers blair" >> /etc/ssh/sshd_config
+    systemctl enable sshd.socket
+    systemctl enable sshd@
+    systemctl start sshd.socket
+    systemctl start sshd@
+fi
