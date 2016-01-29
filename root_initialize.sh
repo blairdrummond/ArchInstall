@@ -99,7 +99,7 @@ uncomment --pattern "%wheel ALL=(ALL) ALL" --file /etc/sudoers
 
 # Set up the next step
 mkdir /home/blair
-cp initialize.sh /home/blair
+cp initialize.sh lightdm-gtk-greeter.conf /home/blair
 chown --recursive blair /home/blair
 
 
@@ -114,8 +114,4 @@ echo "Now log into blair and run the script"
 # LightDM
 pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server-xephyr
 systemctl enable lightdm.service
-pacman -S
-
-sudo chown lightdm.lightdm /vat/lib/lightdm/
-sudo cp ~/.bg.png /usr/share/pixmaps/bg.png
-sudo cp lightdm-gtk-greeter.conf /etc/lightdm/
+chown lightdm.lightdm /vat/lib/lightdm/
