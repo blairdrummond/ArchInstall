@@ -143,3 +143,8 @@ yaourt -S numix-icon-theme-git
 
 # Emacs!!!
 systemctl --user enable emacs
+
+
+# Themes for lightDM
+sudo cp ~/.bg.png /usr/share/pixmaps/bg.png
+sudo cp lightdm-gtk-greeter.conf /etc/lightdm/

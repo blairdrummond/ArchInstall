@@ -108,3 +108,14 @@ chown --recursive blair /home/blair
 
 echo
 echo "Now log into blair and run the script"
+
+
+
+# LightDM
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server-xephyr
+systemctl enable lightdm.service
+pacman -S
+
+sudo chown lightdm.lightdm /vat/lib/lightdm/
+sudo cp ~/.bg.png /usr/share/pixmaps/bg.png
+sudo cp lightdm-gtk-greeter.conf /etc/lightdm/
