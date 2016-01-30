@@ -5,12 +5,10 @@ pause(){
 }
 
 # Install (no window manager yet)
-sudo pacman -S adobe-source-code-pro-fonts arandr aspell aspell-en aspell-fr curl dfc dmenu emacs feh gvfs htop hunspell lxappearance networkmanager networkmanager-openvpn numix-themes openssh openvpn pandoc pygmentize python-pip python-pyflakes python-pygments python-virtualenv ranger rsync screenfetch texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ttf-dejavu tumbler unzip wget wireless_tools wpa_supplicant xbindkeys xf86-input-synaptics xf86-video-intel xfce4-screenshooter xfce4-terminal xorg-server xorg-xclipboard xorg-xinit xorg-xmodmap xorg-xsetroot zathura zathura-pdf-poppler zathura-ps zip zsh zsh-completions
+sudo pacman -S acpi adobe-source-code-pro-fonts alsa-utils arandr aspell aspell-en aspell-fr bash-completion curl dfc dmenu dosfstools emacs feh ffmpeg firefox flashplugin gvfs htop hunspell lightdm lightdm-gtk-greeter-settings lxappearance moc networkmanager networkmanager-openvpn nmap numix-themes openssh openvpn pandoc pygmentize python-pip python-pyflakes python-pygments python-virtualenv ranger rsync screenfetch texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ttf-dejavu tumbler unzip wget wireless_tools wpa_supplicant xbindkeys xf86-input-synaptics xf86-video-intel xfce4-screenshooter xfce4-terminal xorg-server xorg-server-utils xorg-server-xephyr xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot zathura zathura-pdf-poppler zathura-ps zip zsh zsh-completions
 
-
-
-# Video card
-sudo pacman -S xf86-video-nouveau
+# # Video card
+# sudo pacman -S xf86-video-nouveau
 
 
 # To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
