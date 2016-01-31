@@ -99,9 +99,8 @@ uncomment --pattern "%wheel ALL=(ALL) ALL" --file /etc/sudoers
 
 # Set up the next step
 mkdir /home/blair
-cp initialize.sh lightdm-gtk-greeter.conf /home/blair
+cp initialize.sh lightdm-gtk-greeter.conf asound.state /home/blair
 chown --recursive blair /home/blair
-
 
 
 

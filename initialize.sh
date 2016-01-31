@@ -5,7 +5,7 @@ pause(){
 }
 
 # Install (no window manager yet)
-sudo pacman -S acpi adobe-source-code-pro-fonts alsa-utils arandr aspell aspell-en aspell-fr bash-completion curl dfc dmenu dosfstools emacs feh ffmpeg firefox flashplugin gvfs htop hunspell lightdm lightdm-gtk-greeter-settings lxappearance moc networkmanager networkmanager-openvpn nmap numix-themes openssh openvpn pandoc pygmentize python-pip python-pyflakes python-pygments python-virtualenv ranger rsync screenfetch texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ttf-dejavu tumbler unzip wget wireless_tools wpa_supplicant xbindkeys xf86-input-synaptics xf86-video-intel xfce4-screenshooter xfce4-terminal xorg-server xorg-server-utils xorg-server-xephyr xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot zathura zathura-pdf-poppler zathura-ps zip zsh zsh-completions
+sudo pacman -S acpi adobe-source-code-pro-fonts arandr aspell aspell-en aspell-fr bash-completion curl dfc dmenu dosfstools emacs feh ffmpeg firefox flashplugin gvfs htop hunspell lightdm lightdm-gtk-greeter-settings lxappearance networkmanager networkmanager-openvpn nmap numix-themes openssh openvpn pandoc pygmentize python-pip python-pyflakes python-pygments python-virtualenv ranger rsync screenfetch texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ttf-dejavu tumbler unzip wget wireless_tools wpa_supplicant xbindkeys xf86-input-synaptics xf86-video-intel xfce4-screenshooter xfce4-terminal xorg-server xorg-server-utils xorg-server-xephyr xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot zathura zathura-pdf-poppler zathura-ps zip zsh zsh-completions
 
 # # Video card
 # sudo pacman -S xf86-video-nouveau
@@ -60,9 +60,15 @@ sudo cp .executable/* /usr/bin/
 
 
 # #Audio
-# sudo pacman -S alsa alsa-utils amixer ffmpeg
-# sudo gpasswd -a blair audio
-# amixer sset Master unmute
+sudo pacman -S alsa-utils amixer ffmpeg xfce4-mixer
+sudo cp asound.state /var/lib/alsa/
+
+# don't add user to audio group!
+systemctl enable alsa-state.service
+systemctl start  alsa-state.service
+
+
+
 
 # Raspberry Pi
 #	# To get audio out of the headphone jack
