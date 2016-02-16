@@ -1,3 +1,7 @@
+# THIS DOCUMENTATION IS A WORK IN PROGRESS
+
+I'm building a guide for myself for future reference, and I'm using this as a template for now. It's messy, but it's mostly for personal use. Keeping record of protocols and files makes reinstalling easier in the future, and it's easy to track changes in my config by keeping it all under vc.
+
 #Grab Arch ISO and prepare the installation media
 
 **Work in progress. Ignore most of this, the scripts are good though.**
@@ -55,7 +59,6 @@ And we are not going to touch swap. However we have to set it up and activate it
 > swapon /dev/sdxY
 
 
-
 #Installation
 
 We will now install Arch on our system. First we have to mount the root partition to the ‘mnt’ directory:
@@ -110,9 +113,6 @@ Then unmount the partition
 Then reboot the system:
 
 > reboot
-
-
-
 
 #Add User
 

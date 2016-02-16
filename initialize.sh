@@ -4,22 +4,81 @@ pause(){
  read -n1 -rsp $'Press any key to continue or Ctrl+C to exit...\n'
 }
 
-# Install (no window manager yet)
-sudo pacman -S acpi adobe-source-code-pro-fonts arandr aspell aspell-en aspell-fr bash-completion curl dfc dmenu dosfstools emacs feh firefox flashplugin gvfs htop hunspell lightdm lightdm-gtk-greeter-settings lxappearance networkmanager networkmanager-openvpn nmap numix-themes openssh openvpn pandoc pygmentize python-pip python-pyflakes python-pygments python-virtualenv ranger rsync screenfetch texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ttf-dejavu ttf-font-awesome tumbler unzip wget wireless_tools wpa_supplicant xbindkeys xcompmgr xf86-input-synaptics xf86-video-intel xfce4-screenshooter xfce4-terminal xorg-server xorg-server-utils xorg-server-xephyr xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot zathura zathura-pdf-poppler zathura-ps zip zsh zsh-completions
+
+# Spelling
+sudo pacman -S aspell aspell-en aspell-fr hunspell
+
+# Shell
+sudo pacman -S bash-completion dfc htop ranger screenfetch unzip zip zsh zsh-completions
+
+# Network cli stuff
+sudo pacman -S curl wget dosfstools openssh rsync
+
+# Emacs
+sudo pacman -S emacs
+
+# Networking
+sudo pacman -S networkmanager networkmanager-openvpn nmap openvpn wireless_tools wpa_supplicant
+
+# Python Things
+sudo pacman -S pygmentize python-pip python-pyflakes python-pygments python-virtualenv
+
+# LaTeX
+sudo pacman -S texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science
+
+### Set up graphical stuff
+# Xorg
+sudo pacman -S xbindkeys xcompmgr xf86-input-synaptics xf86-video-intel xorg-server xorg-server-utils xorg-server-xephyr xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot
+
+# Terminal
+sudo pacman -S xfce4-terminal
+
+# Fonts
+sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu ttf-font-awesome
+
+# Xmonad
+sudo pacman -S ghc xmobar xmonad xmonad-contrib cabal-install
+cabal update
+cabal install yeganesh
+
+# Stuff
+sudo pacman -S dmenu feh
+
+# Themes
+sudo pacman -S numix-themes
+
+# Login Manager
+sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
+
+# Browser
+sudo pacman -S opera firefox flashplugin
+
+# Screenshots
+sudo pacman -S xfce4-screenshooter
+
+# Pandoc
+sudo pacman -S pandoc
+
+# Thunar
+sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler
+
+# Printing
+sudo pacman -S cups ghostscript gsfonts system-config-printer cups-filters  cups-pdf
+# Pdf
+sudo pacman -S zathura zathura-pdf-poppler zathura-ps
+
+# Multiple screens
+sudo pacman -S arandr
+
+# ?
+sudo pacman -S gvfs
 
 # # Video card
 # sudo pacman -S xf86-video-nouveau
 
 
 # To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
-read -p "haskell stuff? ghc xmonad cabal?" -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    sudo pacman -S ghc xmobar xmonad xmonad-contrib cabal-install
-    cabal update
-    cabal install yeganesh
-fi
+
 
 
 # xmonad, terminal, moc, tmux, emacs, TeX, xinitrc, background, etc
