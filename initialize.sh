@@ -203,9 +203,9 @@ fi
 # Themes
 yaourt -S numix-icon-theme-git
 
-
-# Emacs!!!
-systemctl --user enable emacs
+# This is now handled by .xprofile for faster startup
+### Emacs!!!
+### systemctl --user enable emacs
 
 
 # Themes for lightDM
