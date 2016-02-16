@@ -12,13 +12,13 @@ sudo pacman -S aspell aspell-en aspell-fr hunspell
 sudo pacman -S bash-completion dfc htop ranger screenfetch unzip zip zsh zsh-completions
 
 # Network cli stuff
-sudo pacman -S curl wget dosfstools openssh rsync
+sudo pacman -S curl wget dosfstools openssh rsync sshfs
 
 # Emacs
 sudo pacman -S emacs
 
 # Networking
-sudo pacman -S networkmanager networkmanager-openvpn nmap openvpn wireless_tools wpa_supplicant
+sudo pacman -S networkmanager networkmanager-openvpn nmap openvpn wireless_tools wpa_supplicant private-internet-access-vpn pia-tools
 
 # Python Things
 sudo pacman -S pygmentize python-pip python-pyflakes python-pygments python-virtualenv
@@ -34,7 +34,7 @@ sudo pacman -S xbindkeys xcompmgr xf86-input-synaptics xf86-video-intel xorg-ser
 sudo pacman -S xfce4-terminal
 
 # Fonts
-sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu ttf-font-awesome
+sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu ttf-font-awesome terminus-font ttf-inconsolata
 
 # Xmonad
 sudo pacman -S ghc xmobar xmonad xmonad-contrib cabal-install
@@ -42,7 +42,7 @@ cabal update
 cabal install yeganesh
 
 # Stuff
-sudo pacman -S dmenu feh
+sudo pacman -S dmenu feh networkmanager-dmenu-git
 
 # Themes
 sudo pacman -S numix-themes
@@ -51,7 +51,7 @@ sudo pacman -S numix-themes
 sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
 
 # Browser
-sudo pacman -S opera firefox flashplugin
+sudo pacman -S opera firefox flashplugin transmission-gtk
 
 # Screenshots
 sudo pacman -S xfce4-screenshooter
@@ -76,9 +76,7 @@ sudo pacman -S gvfs
 # # Video card
 # sudo pacman -S xf86-video-nouveau
 
-
 # To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
-
 
 
 # xmonad, terminal, moc, tmux, emacs, TeX, xinitrc, background, etc
