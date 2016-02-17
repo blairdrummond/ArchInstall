@@ -117,14 +117,13 @@ sudo cp .executable/* /usr/bin/
 
 
 # #Audio
-sudo pacman -S alsa-utils amixer ffmpeg xfce4-mixer
+sudo pacman -S alsa-utils amixer ffmpeg xfce4-mixer pulseaudio pulseaudio-alsa
+
 sudo cp asound.state /var/lib/alsa/
 
 # don't add user to audio group!
-systemctl enable alsa-state.service
-systemctl start  alsa-state.service
-
-
+# systemctl enable alsa-state.service
+# systemctl start  alsa-state.service
 
 
 # Raspberry Pi
