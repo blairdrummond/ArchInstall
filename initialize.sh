@@ -208,3 +208,7 @@ yaourt -S numix-icon-theme-git
 # Themes for lightDM
 sudo cp ~/.bg.png /usr/share/pixmaps/bg.png
 sudo mv lightdm-gtk-greeter.conf /etc/lightdm/
+
+# Make ranger highlight stuff
+ranger --copy-config=all
+

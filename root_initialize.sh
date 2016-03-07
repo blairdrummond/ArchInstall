@@ -36,6 +36,7 @@ pacman -S sudo highlight tmux vim
 
 # Vim
 cp plug.vim /usr/share/vim/vim74/autoload/
+cp gruvbox.vim /usr/share/vim/vim74/colors/
 
 echo "
 \" syntax highlighting
@@ -48,7 +49,7 @@ hi SpellBad cterm=underline
 
 
 \" Theme
-colorscheme desert
+colorscheme gruvbox
 
 
 \" Goyo
