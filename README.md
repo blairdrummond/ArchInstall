@@ -114,80 +114,19 @@ Then reboot the system:
 
 > reboot
 
-#Add User
+# User Setup
 
-> useradd -m -G wheel -s /bin/bash blair
+run
 
-We now have to create password for this user:
-
-> passwd blair
-
-Let’s now install sudo so that this user can perform administrative tasks without becoming root:
-
-> pacman -S sudo
-
-> visudo
-
-Un-comment this line in this file:
-
-```%wheel ALL=(ALL) ALL```
-
-I also suggest installing the bash-completion package which makes it easier with auto-complete of commands and package names.
-
-> pacman -S bash-completion
+> sudo sh initialize.sh
 
 
-#Configure repositories
-
-Now we have to set-up some repositories before we start installing packages.
-
-If you are running a 64bit system then you need to enable the ‘multilib repository. Open the pacman.conf file using nano:
-
-> vim /etc/pacman.conf
-
-Scroll down and un-comment the ‘multilib’ repo:
-
-```
-[multilib]
-Include = /etc/pacman.d/mirrorlist
-```
-
-> pacman -Sy
-
-Note: You must always update repos before installing any packages.
-
-
-#Install X
-
-> sudo pacman -S xorg-server xorg-server-utils
-
-It will ask you to install libgl package, choose the one for your GPU. If you have Intel card, then use mesa-libgl, if you have latest nvidia card then nvidia-libgl.
-
-It’s time to now install GPU driver:
-
-##Intel GPU:
-> pacman -S xf86-video-intel
-
-#Nvidia
-> pacman -S nvidia nvidia-libgl
-
+<!--
 #ATI/AMD:
 > pacman -S xf86-video-ati lib32-mesa-libgl
-
 
 #Touch-pad
 If you are using a laptop you will also need to install the drivers for input devices like touch-pad:
 
 > pacman -S xf86-input-synaptics
-
-
-#Desktop Environment
-> sudo pacman -S xmonad xmobar
-
-**Other Xmonad stuff?**
-
-then
-
-> git init
-
-> git pull https://github.com/blairdrummond/dotfiles.git
+-->
