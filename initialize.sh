@@ -8,7 +8,7 @@ pause(){
 sudo pacman -S bash-completion dfc htop ranger screenfetch unzip zip zsh zsh-completions
 
 # Network cli stuff
-sudo pacman -S curl wget dosfstools openssh rsync sshfs
+sudo pacman -S curl wget dosfstools openssh rsync
 
 # Emacs
 sudo pacman -S emacs
@@ -51,7 +51,8 @@ sudo pacman -S dmenu feh networkmanager-dmenu-git
 sudo pacman -S numix-themes
 
 # Login Manager
-sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
+# sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
+sudo pacman -S lxappearance
 
 # Browser
 sudo pacman -S opera firefox flashplugin transmission-gtk
