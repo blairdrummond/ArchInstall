@@ -4,10 +4,6 @@ pause(){
  read -n1 -rsp $'Press any key to continue or Ctrl+C to exit...\n'
 }
 
-
-# Spelling
-sudo pacman -S aspell aspell-en aspell-fr hunspell
-
 # Shell
 sudo pacman -S bash-completion dfc htop ranger screenfetch unzip zip zsh zsh-completions
 
@@ -25,6 +21,13 @@ sudo pacman -S pygmentize python-pip python-pyflakes python-pygments python-virt
 
 # LaTeX
 sudo pacman -S texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science
+
+# Spelling
+sudo pacman -S aspell aspell-en aspell-fr hunspell
+
+# Add this?
+sudo pip install proselint
+
 
 ### Set up graphical stuff
 # Xorg
