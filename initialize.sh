@@ -17,7 +17,7 @@ sudo pacman -S emacs
 sudo pacman -S networkmanager networkmanager-openvpn nmap openvpn wireless_tools wpa_supplicant private-internet-access-vpn pia-tools
 
 # Python Things
-sudo pacman -S pygmentize python-pip python-pyflakes python-pygments python-virtualenv
+sudo pacman -S pygmentize python-pip python-pyflakes python-pygments python-virtualenv python-sympy
 
 # LaTeX
 sudo pacman -S texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science
@@ -47,12 +47,9 @@ cabal install yeganesh
 # Stuff
 sudo pacman -S dmenu feh networkmanager-dmenu-git
 
-# Themes
-sudo pacman -S numix-themes
-
 # Login Manager
 # sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
-sudo pacman -S lxappearance
+sudo pacman -S lxappearance cowsay
 
 # Browser
 sudo pacman -S opera firefox flashplugin transmission-gtk
@@ -121,7 +118,7 @@ sudo cp .executable/* /usr/bin/
 
 
 # #Audio
-sudo pacman -S alsa-utils amixer ffmpeg xfce4-mixer pulseaudio pulseaudio-alsa
+sudo pacman -S alsa-utils amixer ffmpeg xfce4-mixer pulseaudio pulseaudio-alsa moc
 
 sudo cp asound.state /var/lib/alsa/
 
@@ -202,16 +199,12 @@ fi
 
 
 # Themes
-yaourt -S numix-icon-theme-git
-
-# This is now handled by .xprofile for faster startup
-### Emacs!!!
-### systemctl --user enable emacs
-
+yaourt -S gtk-theme-flatstudio numix-icon-theme-git
+# sudo pacman -S numix-themes
 
 # Themes for lightDM
-sudo cp ~/.bg.png /usr/share/pixmaps/bg.png
-sudo mv lightdm-gtk-greeter.conf /etc/lightdm/
+# sudo cp ~/.bg.png /usr/share/pixmaps/bg.png
+# sudo mv lightdm-gtk-greeter.conf /etc/lightdm/
 
 # Make ranger highlight stuff
 ranger --copy-config=all
