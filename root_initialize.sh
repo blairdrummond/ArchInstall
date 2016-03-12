@@ -100,7 +100,8 @@ uncomment --pattern "%wheel ALL=(ALL) ALL" --file /etc/sudoers
 
 # Set up the next step
 mkdir /home/blair
-cp initialize.sh lightdm-gtk-greeter.conf asound.state /home/blair
+# cp initialize.sh lightdm-gtk-greeter.conf asound.state /home/blair
+cp initialize.sh asound.state /home/blair
 chown --recursive blair /home/blair
 
 
@@ -112,6 +113,6 @@ echo "Now log into blair and run the script"
 
 
 # LightDM
-pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server-xephyr
-systemctl enable lightdm.service
-chown lightdm.lightdm /vat/lib/lightdm/
+# pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server-xephyr
+# systemctl enable lightdm.service
+# chown lightdm.lightdm /vat/lib/lightdm/
