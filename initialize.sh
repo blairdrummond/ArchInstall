@@ -10,6 +10,49 @@ sudo pacman -S bash-completion dfc htop ranger screenfetch unzip zip zsh zsh-com
 # Network cli stuff
 sudo pacman -S curl wget dosfstools openssh rsync
 
+### Set up graphical stuff
+
+ONCE="True"
+while [[ $ONCE == "True" ]]
+do
+    echo "Intel, Nvidia, or AMD Graphics?
+
+    (intel)
+    (amd)
+    (nvidia)
+    (none)
+
+"
+    read Graphics
+    case $Graphics in
+
+	intel)
+	    sudo pacman -S xf86-video-intel
+	    ONCE="False"
+	    ;;
+
+	amd)
+	    sudo pacman -S xf86-video-ati
+	    ONCE="False"
+	    ;;
+
+	nvidia)
+	    sudo pacman -S nvidia nvidia-libgl
+	    ONCE="False"
+	    ;;
+
+	none)
+	    ONCE="False"
+	    ;;
+
+	*)
+	    ;;
+    esac
+done
+
+# Xorg
+sudo pacman -S xbindkeys xcompmgr xf86-input-synaptics xorg-server xorg-server-utils xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot
+
 # Emacs
 sudo pacman -S emacs
 
@@ -27,52 +70,6 @@ sudo pacman -S aspell aspell-en aspell-fr hunspell
 
 # Add this?
 sudo pip install proselint
-
-### Set up graphical stuff
-# Xorg
-# # Video card
-# sudo pacman -S xf86-video-nouveau
-
-#
-# ONCE="True"
-# while [[ $ONCE == "True" ]]
-# do
-#     echo "Intel, Nvidia, or AMD Graphics?
-#
-#     (intel)
-#     (amd)
-#     (nvidia)
-#     (none)
-#
-# "
-#     read Graphics
-#     case $Graphics in
-#
-# 	intel)
-# 	    sudo pacman -S xf86-video-intel
-# 	    ONCE="False"
-# 	    ;;
-#
-# 	amd)
-# 	    sudo pacman -S xf86-video-ati
-# 	    ONCE="False"
-# 	    ;;
-#
-# 	nvidia)
-# 	    sudo pacman -S nvidia-libgl
-# 	    ONCE="False"
-# 	    ;;
-#
-# 	none)
-# 	    ONCE="False"
-# 	    ;;
-#
-# 	*)
-# 	    ;;
-#     esac
-# done
-
-sudo pacman -S xbindkeys xcompmgr xf86-input-synaptics xorg-server xorg-server-utils xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot
 
 # Terminal
 sudo pacman -S rxvt-unicode urxvt-perls
