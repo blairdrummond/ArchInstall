@@ -122,3 +122,9 @@ Log into blair, and run **NOT AS SUDO**
 > sh initialize.sh
 
 Then log out and log back in
+
+# Fstab
+
+If you want to add another harddrive, you can append to /etc/fstab
+
+> /dev/sd{XN}  {Mount Point} {type, eg: ntfs} defaults 0 2
