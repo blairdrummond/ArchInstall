@@ -81,7 +81,7 @@ sudo pacman -S rxvt-unicode urxvt-perls
 sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu ttf-font-awesome terminus-font ttf-inconsolata
 
 # Xmonad
-sudo pacman -S ghc xmobar xmonad xmonad-contrib cabal-install
+sudo pacman -S ghc xmobar xmonad xmonad-contrib cabal-install dmenu
 cabal update
 cabal install yeganesh
 

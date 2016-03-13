@@ -114,19 +114,11 @@ Then reboot the system:
 
 > reboot
 
+
 # User Setup
 
-run
+Log into blair, and run **NOT AS SUDO**
 
-> sudo sh initialize.sh
+> sh initialize.sh
 
-
-<!--
-#ATI/AMD:
-> pacman -S xf86-video-ati lib32-mesa-libgl
-
-#Touch-pad
-If you are using a laptop you will also need to install the drivers for input devices like touch-pad:
-
-> pacman -S xf86-input-synaptics
--->
+Then log out and log back in
