@@ -49,6 +49,7 @@ hi SpellBad cterm=underline
 
 
 \" Theme
+set background=dark
 colorscheme gruvbox
 
 

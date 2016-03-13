@@ -77,16 +77,13 @@ sudo pacman -S xbindkeys xcompmgr xf86-input-synaptics xorg-server xorg-server-u
 # Terminal
 sudo pacman -S rxvt-unicode urxvt-perls
 
-# Fonts
-sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu ttf-font-awesome terminus-font ttf-inconsolata
-
 # Xmonad
 sudo pacman -S ghc xmobar xmonad xmonad-contrib cabal-install dmenu
 cabal update
 cabal install yeganesh
 
 # Stuff
-sudo pacman -S dmenu feh networkmanager-dmenu-git
+sudo pacman -S dmenu feh
 
 # Login Manager
 # sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
@@ -132,10 +129,12 @@ function choose_system () {
 	1)
 	    git init
 	    git pull https://github.com/blairdrummond/dotfiles.git
+	    git remote add origin https://github.com/user/repo.git
 	    ;;
 	2)
 	    git init
 	    git pull https://github.com/blairdrummond/dotfiles.git
+	    git remote add origin https://github.com/user/repo.git
 	    ;;
 	*)
 	    echo "Bad option"
@@ -151,7 +150,7 @@ sudo cp .executable/* /usr/bin/
 
 
 # #Audio
-sudo pacman -S alsa-utils amixer ffmpeg pulseaudio pulseaudio-alsa pamixer moc
+sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer moc
 
 sudo cp asound.state /var/lib/alsa/
 
@@ -250,3 +249,10 @@ ranger --copy-config=all
 
 # Printer
 sudo pacman -S hplip iputils usbutils
+
+# Fonts
+sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu terminus-font ttf-inconsolata
+yaourt -S ttf-font-awesome
+
+# Networking through dmenu:  nmcli_dmenu
+yaourt -S networkmanager-dmenu-git
