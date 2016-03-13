@@ -17,7 +17,7 @@ sudo pacman -S emacs
 sudo pacman -S networkmanager networkmanager-openvpn nmap openvpn wireless_tools wpa_supplicant private-internet-access-vpn pia-tools
 
 # Python Things
-sudo pacman -S pygmentize python-pip python-pyflakes python-pygments python-virtualenv python-sympy
+sudo pacman -S pygmentize python-pip python-pyflakes python-pygments python-virtualenv python-sympy python-termcolor
 
 # LaTeX
 sudo pacman -S texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science
@@ -33,44 +33,49 @@ sudo pip install proselint
 # # Video card
 # sudo pacman -S xf86-video-nouveau
 
+#
+# ONCE="True"
+# while [[ $ONCE == "True" ]]
+# do
+#     echo "Intel, Nvidia, or AMD Graphics?
+#
+#     (intel)
+#     (amd)
+#     (nvidia)
+#     (none)
+#
+# "
+#     read Graphics
+#     case $Graphics in
+#
+# 	intel)
+# 	    sudo pacman -S xf86-video-intel
+# 	    ONCE="False"
+# 	    ;;
+#
+# 	amd)
+# 	    sudo pacman -S xf86-video-ati
+# 	    ONCE="False"
+# 	    ;;
+#
+# 	nvidia)
+# 	    sudo pacman -S nvidia-libgl
+# 	    ONCE="False"
+# 	    ;;
+#
+# 	none)
+# 	    ONCE="False"
+# 	    ;;
+#
+# 	*)
+# 	    ;;
+#     esac
+# done
 
-ONCE="True"
-while [[ $ONCE == "True" ]]
-do
-    echo "Intel, Nvidia, or AMD Graphics?
-
-    (intel)
-    (amd)
-    (nvidia)
-
-"
-    read Graphics
-    case $Graphics in
-
-	intel)
-	    sudo pacman -S xf86-video-intel
-	    ONCE="False"
-	    ;;
-
-	amd)
-	    sudo pacman -S xf86-video-ati
-	    ONCE="False"
-	    ;;
-
-	nvidia)
-	    sudo pacman -S nvidia-libgl
-	    ONCE="False"
-	    ;;
-
-	*)
-	    ;;
-    esac
-done
-
-sudo pacman -S xbindkeys xcompmgr xf86-input-synaptics  xorg-server xorg-server-utils xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot
+sudo pacman -S xbindkeys xcompmgr xf86-input-synaptics xorg-server xorg-server-utils xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot
 
 # Terminal
-sudo pacman -S rxvt-unicode
+sudo pacman -S rxvt-unicode urxvt-perls
 
 # Fonts
 sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu ttf-font-awesome terminus-font ttf-inconsolata
@@ -146,7 +151,7 @@ sudo cp .executable/* /usr/bin/
 
 
 # #Audio
-sudo pacman -S alsa-utils amixer ffmpeg pulseaudio pulseaudio-alsa moc
+sudo pacman -S alsa-utils amixer ffmpeg pulseaudio pulseaudio-alsa pamixer moc
 
 sudo cp asound.state /var/lib/alsa/
 
@@ -242,3 +247,6 @@ yaourt -S gtk-theme-flatstudio numix-icon-theme-git
 
 # Make ranger highlight stuff
 ranger --copy-config=all
+
+# Printer
+sudo pacman -S hplip iputils usbutils
