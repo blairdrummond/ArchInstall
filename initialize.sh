@@ -255,5 +255,7 @@ yaourt -S ttf-font-awesome
 # Networking through dmenu:  nmcli_dmenu
 yaourt -S networkmanager-dmenu-git
 
-# Time zone
+# Time
 timedatectl set-timezone America/Toronto
+sudo pacman -S ntp
+sudo ntpd -qg
