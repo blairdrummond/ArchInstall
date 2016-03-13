@@ -28,13 +28,49 @@ sudo pacman -S aspell aspell-en aspell-fr hunspell
 # Add this?
 sudo pip install proselint
 
-
 ### Set up graphical stuff
 # Xorg
-sudo pacman -S xbindkeys xcompmgr xf86-input-synaptics xf86-video-intel xorg-server xorg-server-utils xorg-server-xephyr xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot
+# # Video card
+# sudo pacman -S xf86-video-nouveau
+
+
+ONCE="True"
+while [[ $ONCE == "True" ]]
+do
+    echo "Intel, Nvidia, or AMD Graphics?
+
+    (intel)
+    (amd)
+    (nvidia)
+
+"
+    read Graphics
+    case $Graphics in
+
+	intel)
+	    sudo pacman -S xf86-video-intel
+	    ONCE="False"
+	    ;;
+
+	amd)
+	    sudo pacman -S xf86-video-ati
+	    ONCE="False"
+	    ;;
+
+	nvidia)
+	    sudo pacman -S nvidia-libgl
+	    ONCE="False"
+	    ;;
+
+	*)
+	    ;;
+    esac
+done
+
+sudo pacman -S xbindkeys xcompmgr xf86-input-synaptics  xorg-server xorg-server-utils xorg-twm xorg-xclock xorg-xinit xorg-xmodmap xorg-xsetroot
 
 # Terminal
-sudo pacman -S xfce4-terminal
+sudo pacman -S rxvt-unicode
 
 # Fonts
 sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu ttf-font-awesome terminus-font ttf-inconsolata
@@ -74,12 +110,6 @@ sudo pacman -S arandr
 # ?
 sudo pacman -S gvfs
 
-# # Video card
-# sudo pacman -S xf86-video-nouveau
-
-# To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
-
-
 # xmonad, terminal, moc, tmux, emacs, TeX, xinitrc, background, etc
 git config --global user.email "bdrum047@uottawa.ca"
 git config --global user.name  "Blair Drummond"
@@ -95,10 +125,8 @@ function choose_system () {
 " n
     case $n in
 	1)
-	    git clone -b desktop_xmodmap https://github.com/blairdrummond/dotfiles.git
-	    mv dotfiles/*  .
-	    mv dotfiles/.* .
-	    rm dotfiles -rf
+	    git init
+	    git pull https://github.com/blairdrummond/dotfiles.git
 	    ;;
 	2)
 	    git init
@@ -118,7 +146,7 @@ sudo cp .executable/* /usr/bin/
 
 
 # #Audio
-sudo pacman -S alsa-utils amixer ffmpeg xfce4-mixer pulseaudio pulseaudio-alsa moc
+sudo pacman -S alsa-utils amixer ffmpeg pulseaudio pulseaudio-alsa moc
 
 sudo cp asound.state /var/lib/alsa/
 
@@ -156,8 +184,14 @@ makepkg -sri
 cd ~/
 
 
-# Backlight control
-yaourt -S light-git
+# To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
+read -p "Need backlight configuration?" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    # Backlight control
+    yaourt -S light-git
+fi
 
 
 # Email setup
@@ -208,4 +242,3 @@ yaourt -S gtk-theme-flatstudio numix-icon-theme-git
 
 # Make ranger highlight stuff
 ranger --copy-config=all
-

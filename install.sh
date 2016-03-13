@@ -41,8 +41,11 @@ hwclock --systohc --utc
 
 # Grub!!
 pacman -S grub
-while [[ ! $REPLY =~ ^[Yy]$ ]]
+
+ONCE="True"
+while [[ $ONCE == "True" || ! $REPLY =~ ^[Yy]$ ]]
 do
+    ONCE="False"
     lsblk
     echo "Enter the full name of the boot device"
     read DEVICE
