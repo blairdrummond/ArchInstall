@@ -78,6 +78,7 @@ sudo pacman -S rxvt-unicode urxvt-perls
 sudo pacman -S ghc xmobar xmonad xmonad-contrib cabal-install dmenu
 cabal update
 cabal install yeganesh
+cabal install xmonad-contrib
 
 # Stuff
 sudo pacman -S dmenu feh
