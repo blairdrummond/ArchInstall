@@ -238,6 +238,9 @@ fi
 yaourt -S gtk-theme-flatstudio numix-icon-theme-git
 # sudo pacman -S numix-themes
 
+# Transparent windows + shadows
+sudo pacman -S compton
+
 # Themes for lightDM
 # sudo cp ~/.bg.png /usr/share/pixmaps/bg.png
 # sudo mv lightdm-gtk-greeter.conf /etc/lightdm/
