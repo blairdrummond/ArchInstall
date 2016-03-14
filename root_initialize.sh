@@ -52,6 +52,8 @@ hi SpellBad cterm=underline
 set background=dark
 colorscheme gruvbox
 
+autocmd ColorScheme * highlight Normal ctermbg=None
+autocmd ColorScheme * highlight NonText ctermbg=None
 
 \" Goyo
 call plug#begin('/etc/vim/plugged')
