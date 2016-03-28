@@ -116,32 +116,15 @@ git config --global user.name  "Blair Drummond"
 
 
 
-# For desktop keyboard bindings, switch branches
-function choose_system () {
-    read -p "Choose system:
-
-    1) desktop
-    2) netbook
-" n
-    case $n in
-	1)
-	    git init
-	    git pull https://github.com/blairdrummond/dotfiles.git
-	    git remote add origin https://github.com/user/repo.git
-	    ;;
-	2)
-	    git init
-	    git pull https://github.com/blairdrummond/dotfiles.git
-	    git remote add origin https://github.com/user/repo.git
-	    ;;
-	*)
-	    echo "Bad option"
-	    echo
-	    choose_system
-	    ;;
-    esac
-}
-choose_system
+# install dotfiles
+sudo pacman -S stow
+git clone https://github.com/blairdrummond/dotfiles.git
+cd dotfiles
+for $d in `ls -d */`;
+do
+    stow $d
+done
+cd ~/
 
 # Copy scripts into bin for xmobar to use
 sudo cp .executable/* /usr/bin/
