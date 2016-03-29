@@ -3,7 +3,6 @@
 import subprocess
 import re
 
-
 p = subprocess.Popen(
     ['pacman', '-Qet'],
     stdout=subprocess.PIPE,
