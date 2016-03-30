@@ -131,7 +131,7 @@ sudo cp .executable/* /usr/bin/
 
 
 # #Audio
-sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer moc
+sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer mpd mpc ncmpcpp
 
 sudo cp asound.state /var/lib/alsa/
 
