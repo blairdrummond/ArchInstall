@@ -90,9 +90,6 @@ sudo pacman -S lxappearance
 # Browser
 sudo pacman -S opera firefox flashplugin transmission-gtk
 
-# Screenshots
-sudo pacman -S xfce4-screenshooter
-
 # Pandoc
 sudo pacman -S pandoc
 
@@ -242,4 +239,4 @@ sudo pacman -S ntp
 sudo ntpd -qg
 
 # xfce
-sudo pacman -S xfce4 xfce4-whiskermenu-plugin xfce4-battery-plugin
+sudo pacman -S xfce4 xfce4-goodies xfce4-battery-plugin
