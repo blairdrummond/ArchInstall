@@ -85,7 +85,7 @@ sudo pacman -S dmenu feh
 
 # Login Manager
 # sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
-sudo pacman -S lxappearance cowsay
+sudo pacman -S lxappearance
 
 # Browser
 sudo pacman -S opera firefox flashplugin transmission-gtk
@@ -203,7 +203,6 @@ systemctl start  NetworkManager.service
 
 
 
-
 # To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
 read -p "ssh into this machine?" -n 1 -r
 echo
@@ -218,15 +217,11 @@ fi
 
 
 # Themes
-yaourt -S gtk-theme-flatstudio numix-icon-theme-git
+yaourt -S gtk-theme-flatstudio numix-circle-icon-theme-git
 # sudo pacman -S numix-themes
 
 # Transparent windows + shadows
 sudo pacman -S compton
-
-# Themes for lightDM
-# sudo cp ~/.bg.png /usr/share/pixmaps/bg.png
-# sudo mv lightdm-gtk-greeter.conf /etc/lightdm/
 
 # Make ranger highlight stuff
 ranger --copy-config=all
@@ -245,3 +240,6 @@ yaourt -S networkmanager-dmenu-git
 timedatectl set-timezone America/Toronto
 sudo pacman -S ntp
 sudo ntpd -qg
+
+# xfce
+sudo pacman -S xfce4 xfce4-whiskermenu-plugin xfce4-battery-plugin
