@@ -75,10 +75,11 @@ sudo pip install proselint
 sudo pacman -S rxvt-unicode urxvt-perls
 
 # Xmonad
-sudo pacman -S ghc xmobar xmonad xmonad-contrib cabal-install dmenu
+sudo pacman -S ghc xmonad xmonad-contrib cabal-install dmenu c2hs
 cabal update
 cabal install yeganesh
 cabal install xmonad-contrib
+cabal install xmobar --flags="all_extensions"
 
 # Stuff
 sudo pacman -S dmenu feh
@@ -128,7 +129,7 @@ sudo cp .executable/* /usr/bin/
 
 
 # #Audio
-sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer mpd mpc ncmpcpp
+sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer mpd mpc ncmpcpp libmpd
 
 sudo cp asound.state /var/lib/alsa/
 
@@ -231,7 +232,7 @@ sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu terminus-font ttf-inconsol
 yaourt -S ttf-font-awesome
 
 # Networking through dmenu:  nmcli_dmenu
-yaourt -S networkmanager-dmenu-git
+# yaourt -S networkmanager-dmenu-git
 
 # Time
 timedatectl set-timezone America/Toronto
