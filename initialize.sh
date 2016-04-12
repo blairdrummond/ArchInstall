@@ -63,7 +63,7 @@ sudo pacman -S networkmanager networkmanager-openvpn nmap openvpn wireless_tools
 sudo pacman -S pygmentize python-pip python-pyflakes python-pygments python-virtualenv python-sympy python-termcolor
 
 # LaTeX
-sudo pacman -S texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science
+sudo pacman -S texlive-bibtexextra texlive-core texlive-formatsextra texlive-latexextra texlive-pictures texlive-plainextra texlive-science texlive-pstricks
 
 # Spelling
 sudo pacman -S aspell aspell-en aspell-fr hunspell
@@ -75,14 +75,13 @@ sudo pip install proselint
 sudo pacman -S rxvt-unicode urxvt-perls
 
 # Xmonad
-sudo pacman -S ghc xmonad xmonad-contrib cabal-install dmenu c2hs
+sudo pacman -S ghc xmonad xmonad-contrib cabal-install c2hs
 cabal update
-cabal install yeganesh
 cabal install xmonad-contrib
 cabal install xmobar --flags="all_extensions"
 
 # Stuff
-sudo pacman -S dmenu feh
+sudo pacman -S feh
 
 # Login Manager
 # sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
@@ -215,8 +214,8 @@ fi
 
 
 # Themes
-yaourt -S gtk-theme-flatstudio numix-circle-icon-theme-git
-# sudo pacman -S numix-themes
+yaourt -S numix-circle-icon-theme-git
+sudo pacman -S numix-themes
 
 # Transparent windows + shadows
 sudo pacman -S compton
@@ -241,3 +240,13 @@ sudo ntpd -qg
 
 # xfce
 sudo pacman -S xfce4 xfce4-goodies xfce4-battery-plugin
+
+# IRC
+sudo pacman -S weechat
+
+
+# Xcalib
+yaourt -S xcalib
+
+# R
+sudo pacman -S r
