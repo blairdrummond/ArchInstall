@@ -241,3 +241,7 @@ sudo ntpd -qg
 
 # xfce
 sudo pacman -S xfce4 xfce4-goodies xfce4-battery-plugin
+
+yaourt -S xcalib
+
+sudo pacman -S xdotool
