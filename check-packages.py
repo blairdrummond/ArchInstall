@@ -30,7 +30,5 @@ script = { x for y in
            ] for x in y
            if not any( s in x for s in ('--', 'sudo', 'pacman', '-S')) }
 
-
-
 for e in sorted(packages - script):
     print(e)
