@@ -35,8 +35,6 @@ Usage:
 pacman -S sudo highlight tmux vim
 
 # Vim
-cp plug.vim /usr/share/vim/vim74/autoload/
-cp gruvbox.vim /usr/share/vim/vim74/colors/
 
 echo "
 \" syntax highlighting
@@ -50,37 +48,12 @@ hi SpellBad cterm=underline
 
 \" Theme
 set background=dark
+highlight Normal ctermfg=grey ctermbg=black
+
 colorscheme gruvbox
-
-autocmd ColorScheme * highlight Normal ctermbg=None
-autocmd ColorScheme * highlight NonText ctermbg=None
-
-\" Goyo
-call plug#begin('/etc/vim/plugged')
-    Plug 'junegunn/goyo.vim'
-call plug#end()
-
-autocmd VimEnter * Goyo
-
-\" Quitting whether Goyo is active or not
-ca wq :w<cr>:call Quit()<cr>
-ca q :call Quit()<cr>
-function! Quit()
-    if exists('#goyo')
-        Goyo
-    endif
-    quit
-endfunction
+highlight Normal ctermbg=NONE
+highlight NonText ctermbg=NONE
 " >> /etc/vimrc
-
-	echo "Now we're going to run vim. You need to just ignore any errors and type
-
-    > :PlugInstall
-
-That should install Goyo system wide.
-"
-pause
-vim
 
 
 # Add User
