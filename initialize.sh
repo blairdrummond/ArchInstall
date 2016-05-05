@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo wifi-menu -o
+
 pause(){
  read -n1 -rsp $'Press any key to continue or Ctrl+C to exit...\n'
 }
@@ -75,10 +77,9 @@ sudo pip install proselint
 sudo pacman -S rxvt-unicode urxvt-perls
 
 # Xmonad
-sudo pacman -S ghc xmonad xmonad-contrib cabal-install c2hs
+sudo pacman -S ghc xmonad xmobar xmonad-contrib cabal-install c2hs
 cabal update
 cabal install xmonad-contrib
-cabal install xmobar --flags="all_extensions"
 
 # Stuff
 sudo pacman -S feh
@@ -112,23 +113,23 @@ git config --global user.email "bdrum047@uottawa.ca"
 git config --global user.name  "Blair Drummond"
 
 
-
 # install dotfiles
 sudo pacman -S stow
-git clone https://github.com/blairdrummond/dotfiles.git
+git clone https://github.com/blairdrummond/dots.git
 cd dotfiles
-for $d in `ls -d */`;
+for d in `ls -d */`;
 do
     stow $d
 done
 cd ~/
+
 
 # Copy scripts into bin for xmobar to use
 sudo cp .executable/* /usr/bin/
 
 
 # #Audio
-sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer mpd mpc ncmpcpp libmpd
+sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer mpd mpc ncmpcpp libmpd exfat-utils
 
 sudo cp asound.state /var/lib/alsa/
 
@@ -193,7 +194,6 @@ chsh -s /bin/zsh
 mv temp.zshrc .zshrc
 
 
-
 # Network Manager
 systemctl enable NetworkManager.service
 systemctl start  NetworkManager.service
@@ -214,8 +214,8 @@ fi
 
 
 # Themes
-yaourt -S numix-circle-icon-theme-git
-sudo pacman -S numix-themes
+yaourt -S gtk-theme-arc
+yaourt -S ultra-flat-icons
 
 # Transparent windows + shadows
 sudo pacman -S compton
@@ -227,19 +227,14 @@ ranger --copy-config=all
 sudo pacman -S hplip iputils usbutils
 
 # Fonts
-sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu terminus-font ttf-inconsolata
+sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu
 yaourt -S ttf-font-awesome
-
-# Networking through dmenu:  nmcli_dmenu
-# yaourt -S networkmanager-dmenu-git
 
 # Time
 timedatectl set-timezone America/Toronto
 sudo pacman -S ntp
 sudo ntpd -qg
-
-# xfce
-sudo pacman -S xfce4 xfce4-goodies xfce4-battery-plugin
+systemctl enable ntpd.service
 
 # IRC
 sudo pacman -S weechat
@@ -252,3 +247,18 @@ sudo pacman -S r
 
 # ?
 sudo pacman -S xdotool
+
+# linux lts
+sudo pacman -S linux-lts
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Trayer
+sudo pacman -S trayer network-manager-applet
+
+# battery
+sudo pacman -S acpi
+
+echo "Now figure out how to set up Pulse Audio. Good Luck."
+echo "(try systemd, setting the sink, and /etc/asoundrc)"
+echo
+echo "Also, stow "

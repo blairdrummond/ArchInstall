@@ -34,28 +34,6 @@ Usage:
 
 pacman -S sudo highlight tmux vim
 
-# Vim
-
-echo "
-\" syntax highlighting
-syntax on
-
-
-\" Spell check
-hi clear SpellBad
-hi SpellBad cterm=underline
-
-
-\" Theme
-set background=dark
-highlight Normal ctermfg=grey ctermbg=black
-
-colorscheme gruvbox
-highlight Normal ctermbg=NONE
-highlight NonText ctermbg=NONE
-" >> /etc/vimrc
-
-
 # Add User
 useradd -m -G wheel -s /bin/bash blair
 
@@ -76,19 +54,9 @@ uncomment --pattern "%wheel ALL=(ALL) ALL" --file /etc/sudoers
 
 # Set up the next step
 mkdir /home/blair
-# cp initialize.sh lightdm-gtk-greeter.conf asound.state /home/blair
 cp initialize.sh asound.state /home/blair
 chown --recursive blair /home/blair
 
 
-
-
 echo
 echo "Now log into blair and run the script"
-
-
-
-# LightDM
-# pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server-xephyr
-# systemctl enable lightdm.service
-# chown lightdm.lightdm /vat/lib/lightdm/
