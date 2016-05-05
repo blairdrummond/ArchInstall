@@ -82,7 +82,7 @@ cabal update
 cabal install xmonad-contrib
 
 # Stuff
-sudo pacman -S feh
+sudo pacman -S feh rofi
 
 # Login Manager
 # sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
@@ -113,25 +113,10 @@ git config --global user.email "bdrum047@uottawa.ca"
 git config --global user.name  "Blair Drummond"
 
 
-# install dotfiles
-sudo pacman -S stow
-git clone https://github.com/blairdrummond/dots.git
-cd dotfiles
-for d in `ls -d */`;
-do
-    stow $d
-done
-cd ~/
-
-
-# Copy scripts into bin for xmobar to use
-sudo cp .executable/* /usr/bin/
-
-
 # #Audio
 sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer mpd mpc ncmpcpp libmpd exfat-utils
 
-sudo cp asound.state /var/lib/alsa/
+sudo mv asound.state /var/lib/alsa/
 
 # don't add user to audio group!
 # systemctl enable alsa-state.service
@@ -233,7 +218,6 @@ yaourt -S ttf-font-awesome
 # Time
 timedatectl set-timezone America/Toronto
 sudo pacman -S ntp
-sudo ntpd -qg
 systemctl enable ntpd.service
 
 # IRC
@@ -260,5 +244,20 @@ sudo pacman -S acpi
 
 echo "Now figure out how to set up Pulse Audio. Good Luck."
 echo "(try systemd, setting the sink, and /etc/asoundrc)"
-echo
-echo "Also, stow "
+
+
+
+
+# install dotfiles
+sudo pacman -S stow
+git clone https://github.com/blairdrummond/dots.git
+cd dotfiles
+for d in `ls -d */`;
+do
+    stow $d
+done
+cd ~/
+
+
+# Copy scripts into bin for xmobar to use
+sudo cp .executable/* /usr/bin/
