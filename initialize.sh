@@ -89,7 +89,7 @@ sudo pacman -S feh rofi
 sudo pacman -S lxappearance
 
 # Browser
-sudo pacman -S opera firefox flashplugin transmission-gtk
+# sudo pacman -S opera firefox flashplugin transmission-gtk
 
 # Pandoc
 sudo pacman -S pandoc
@@ -212,8 +212,11 @@ ranger --copy-config=all
 sudo pacman -S hplip iputils usbutils
 
 # Fonts
-sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu
+sudo pacman -S adobe-source-code-pro-fonts ttf-dejavu ttf-liberation ttf-freefont
 yaourt -S ttf-font-awesome
+
+# Browser
+yaourt -S jumanji-git
 
 # Time
 timedatectl set-timezone America/Toronto
