@@ -85,11 +85,7 @@ cabal install xmonad-contrib
 sudo pacman -S feh rofi
 
 # Login Manager
-# sudo pacman -S lightdm lightdm-gtk-greeter-settings lxappearance
 sudo pacman -S lxappearance
-
-# Browser
-# sudo pacman -S opera firefox flashplugin transmission-gtk
 
 # Pandoc
 sudo pacman -S pandoc
@@ -114,7 +110,10 @@ git config --global user.name  "Blair Drummond"
 
 
 # #Audio
-sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer mpd mpc ncmpcpp libmpd exfat-utils
+sudo pacman -S alsa-utils ffmpeg pulseaudio pulseaudio-alsa pamixer mpd mpc libmpd exfat-utils
+
+# sudo pacman -S ncmpcpp
+sudo pacman -S gmpc
 
 sudo mv asound.state /var/lib/alsa/
 
@@ -184,6 +183,10 @@ systemctl enable NetworkManager.service
 systemctl start  NetworkManager.service
 
 
+# Browser
+sudo pacman -S firefox flashplugin transmission-gtk
+yaourt -S vimb
+
 
 # To use sshfs, edit /etc/ssh/sshd_config and start & enable the ssh socket
 read -p "ssh into this machine?" -n 1 -r
@@ -240,7 +243,7 @@ sudo pacman -S linux-lts
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Trayer
-sudo pacman -S trayer network-manager-applet
+# sudo pacman -S trayer network-manager-applet
 
 # battery
 sudo pacman -S acpi
@@ -263,4 +266,7 @@ cd ~/
 
 
 # Copy scripts into bin for xmobar to use
-sudo cp .executable/* /usr/bin/
+sudo cp .executable/* /usr/local/bin/
+
+# Desktop notifications
+sudo pacman -S xfce4-notifyd
